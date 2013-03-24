@@ -6,6 +6,7 @@
 ;;Author : Nariya Takemrua
 ;;Commentary:
 ;;Originary, This file was copied from below.
+;;http://answers.unity3d.com/questions/263061/syntax-highlighting-for-boo-emacs.html
 ;;http://forum.unity3d.com/threads/72458-Official-Boo-Scripting-Resource-Thread/page4?p=1030789&viewfull=1#post1030789
 ;;
 ;;I customize some part, but mainly this script was wrote by them.
@@ -36,7 +37,7 @@
 ;; Define regex expressions for highlighting
 (defvar boo-font-lock-keywords
   (let ((kw1 (mapconcat 'identity
-            '("public" "static" "private" "abstract" "virtual" "override" "protected")
+            '("public" "static" "private" "abstract" "virtual" "override" "protected" "final" )
             "\\|"))
     (kw2 (mapconcat 'identity
             '("ADBannerView" "ADError" "ADInterstitialAd" "AccelerationEvent" "ActionScript" "AndroidInput" 
@@ -84,9 +85,8 @@
     )
     (list
      ;; variable/class/function modifiers
-     
-     (list (concat "\\([^. \t]\\|^\\)[ \t]*\\b\\([" kw1 "\\| ]\\)\\b[ \b\t]")
-           2 boo-modifier-face)
+     (list (concat "\\([^. \t]\\|^\\)[ \t]*\\b\\([" kw1 "\\| ]+\\)\\b[ \b\t]")
+       2 boo-modifier-face)
      ;; Unity-specific classes and such
      (list (concat "[ ()\t]+\\(" kw2 "\\)[ )(\t\n]+")
        1 unity-keyword-class-face)
@@ -100,8 +100,8 @@
      (list (concat "^[ \t]*\\b\\([a-zA-Z_]+[a-zA-Z0-9_]*\\)\\b[ \t]*\\(-=\\|\\+=\\|=\\)[ \t]*")
            1 font-lock-constant-face)
  
-     ;; True/False is now true/false
-     '("\\<\\(true\\|false\\)\\>"
+     ;; True/False is now true/false (and null)
+     '("\\<\\(true\\|false\\|null\\)\\>"
        1 font-lock-keyword-face)
  
      ;; basic lock syntax
@@ -113,8 +113,6 @@
   
      ))
   "Additional expression to highlight in Boo mode.")
- 
-
 
 ;; Define a new mode, boo-mode, derived from python-mode. This
 ;; will currently just function as python-mode with some additional
@@ -134,22 +132,21 @@
 					)
 
 ;;; Constants
-  (defconst py-blank-or-comment-re "[ \t]*\\($\\|#\\|//\\)"
-	"Regular expression matching a blank or comment line.")
+;  (defconst py-blank-or-comment-re "[ \t]*\\($\\|#\\|//\\)"
+;	"Regular expression matching a blank or comment line.")
+;
+;  (defconst py-no-outdent-re "\\(struct\\s+.*:\\|lock\\s+.*:\\|try:\\|except\\(\\s +.*\\)?:\\|using\\s +.*:\\|while\\s +.*:\\|for\\s +.*:\\|if\\s +.*:\\|elif\\s +.*:\\)\\([    ]*\\_<\\(return\\|raise\\|break\\|continue\\|pass\\)\\_>[   \n]\\)")
 
-  (defconst py-no-outdent-re "\\(struct\\s+.*:\\|lock\\s+.*:\\|try:\\|except\\(\\s +.*\\)?:\\|using\\s +.*:\\|while\\s +.*:\\|for\\s +.*:\\|if\\s +.*:\\|elif\\s +.*:\\)\\([    ]*\\_<\\(return\\|raise\\|break\\|continue\\|pass\\)\\_>[   \n]\\)")
-
-  (defconst py-block-re "[ \t]*\\_<\\(class\\|def\\|for\\|if\\|try\\|using\\|while\\|with\\|lock\\|struct\\)\\_>[: \n\t]"
-
-  "Matches the beginning of a compound statement. ")
-  (defconst py-minor-block-re "[ \t]*\\_<\\(for\\|if\\|try\\|lock\\|struct\\)\\_>[: \n\t]"
-    "Matches the beginning of an `for', `if' or `try' block. ")
-  (defconst py-block-or-clause-re "[ \t]*\\_<\\(if\\|else\\|elif\\|using\\|while\\|for\\|def\\|class\\|try\\|except\\|finally\\|with\\|lock\\|struct\\)\\_>[: \n\t]"
-    "Matches the beginning of a compound statement or it's clause. ")
-
-  (defconst py-extended-block-or-clause-re "[ \t]*\\_<\\(def\\|class\\|if\\|else\\|elif\\|using\\|while\\|for\\|try\\|except\\|finally\\|with\\)\\_>[: \n\t]"
-	"Matches the beginning of a compound statement or it's clause.
-Includes def and class. ")
+;  (defconst py-block-re "[ \t]*\\_<\\(class\\|def\\|for\\|if\\|try\\|using\\|while\\|with\\|lock\\|struct\\)\\_>[: \n\t]"
+;
+;  "Matches the beginning of a compound statement. ")
+;  (defconst py-minor-block-re "[ \t]*\\_<\\(for\\|if\\|try\\|lock\\|struct\\)\\_>[: \n\t]"
+;    "Matches the beginning of an `for', `if' or `try' block. ")
+;  (defconst py-block-or-clause-re "[ \t]*\\_<\\(if\\|else\\|elif\\|using\\|while\\|for\\|def\\|class\\|try\\|except\\|finally\\|with\\|lock\\|struct\\)\\_>[: \n\t]"
+;    "Matches the beginning of a compound statement or it's clause. ")
+;
+;  (defconst py-extended-block-or-clause-re "[ \t]*\\_<\\(def\\|class\\|if\\|else\\|elif\\|using\\|while\\|for\\|try\\|except\\|finally\\|with\\)\\_>[: \n\t]"
+;	"Matches the beginning of a compound statement or it's clause.Includes def and class. ")
 
 )
 
