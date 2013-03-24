@@ -105,7 +105,7 @@
        1 font-lock-keyword-face)
  
      ;; basic lock syntax
-     '("\\<\\(lock\\|struct\\|class\\)\\>"
+     '("\\<\\(lock\\|struct\\|class\\|enum\\)\\>"
        1 font-lock-keyword-face)
  
      ;; highlight a struct name
