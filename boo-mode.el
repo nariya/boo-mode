@@ -132,21 +132,21 @@
 					)
 
 ;;; Constants
-;  (defconst py-blank-or-comment-re "[ \t]*\\($\\|#\\|//\\)"
-;	"Regular expression matching a blank or comment line.")
-;
-;  (defconst py-no-outdent-re "\\(struct\\s+.*:\\|lock\\s+.*:\\|try:\\|except\\(\\s +.*\\)?:\\|using\\s +.*:\\|while\\s +.*:\\|for\\s +.*:\\|if\\s +.*:\\|elif\\s +.*:\\)\\([    ]*\\_<\\(return\\|raise\\|break\\|continue\\|pass\\)\\_>[   \n]\\)")
+  (defconst py-blank-or-comment-re "[ \t]*\\($\\|#\\|//\\)"
+	"Regular expression matching a blank or comment line.")
 
-;  (defconst py-block-re "[ \t]*\\_<\\(class\\|def\\|for\\|if\\|try\\|using\\|while\\|with\\|lock\\|struct\\)\\_>[: \n\t]"
-;
-;  "Matches the beginning of a compound statement. ")
-;  (defconst py-minor-block-re "[ \t]*\\_<\\(for\\|if\\|try\\|lock\\|struct\\)\\_>[: \n\t]"
-;    "Matches the beginning of an `for', `if' or `try' block. ")
-;  (defconst py-block-or-clause-re "[ \t]*\\_<\\(if\\|else\\|elif\\|using\\|while\\|for\\|def\\|class\\|try\\|except\\|finally\\|with\\|lock\\|struct\\)\\_>[: \n\t]"
-;    "Matches the beginning of a compound statement or it's clause. ")
-;
-;  (defconst py-extended-block-or-clause-re "[ \t]*\\_<\\(def\\|class\\|if\\|else\\|elif\\|using\\|while\\|for\\|try\\|except\\|finally\\|with\\)\\_>[: \n\t]"
-;	"Matches the beginning of a compound statement or it's clause.Includes def and class. ")
+  (defconst py-no-outdent-re "\\(struct\\s+.*:\\|lock\\s+.*:\\|try:\\|except\\(\\s +.*\\)?:\\|using\\s +.*:\\|while\\s +.*:\\|for\\s +.*:\\|if\\s +.*:\\|elif\\s +.*:\\)\\([    ]*\\_<\\(return\\|raise\\|break\\|continue\\|pass\\)\\_>[   \n]\\)")
+
+  (defconst py-block-re "[ \t]*\\_<\\(class\\|def\\|for\\|if\\|try\\|using\\|while\\|with\\|lock\\|struct\\)\\_>[: \n\t]"
+
+  "Matches the beginning of a compound statement. ")
+  (defconst py-minor-block-re "[ \t]*\\_<\\(for\\|if\\|try\\|lock\\|struct\\)\\_>[: \n\t]"
+    "Matches the beginning of an `for', `if' or `try' block. ")
+  (defconst py-block-or-clause-re "[ \t]*\\_<\\(if\\|else\\|elif\\|using\\|while\\|for\\|def\\|class\\|try\\|except\\|finally\\|with\\|lock\\|struct\\)\\_>[: \n\t]"
+    "Matches the beginning of a compound statement or it's clause. ")
+
+  (defconst py-extended-block-or-clause-re "[ \t]*\\_<\\(def\\|class\\|if\\|else\\|elif\\|using\\|while\\|for\\|try\\|except\\|finally\\|with\\)\\_>[: \n\t]"
+	"Matches the beginning of a compound statement or it's clause.Includes def and class. ")
 
 )
 
