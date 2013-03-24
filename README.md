@@ -3,7 +3,8 @@ boo-mode
 
 emacs mode for Boo Language, derived from python-mode
 MIT Licensed script.
-
+簡単なboo向けのemacs major mode です。
+最低限のコメント部分のfontlockとかできます。
 
 
 More Information
